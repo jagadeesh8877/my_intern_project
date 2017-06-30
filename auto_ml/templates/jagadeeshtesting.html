@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<head>
+	<style>
+		
+#uploadbtn{
+	position:absolute;
+	top:30%;
+	left:33%;
+	font-size:16px;
+	margin: 4px 2px;
+	background-color:yellow;
+	border-style:none;
+	height:40px;
+	width:100px;
+	cursor:pointer;
+}
+#classify2btn{
+	position:absolute;
+	top:30%;
+	left:43%;
+	font-size:16px;
+	margin: 4px 2px;
+	background-color:yellow;
+	border-style:none;
+	height:40px;
+	width:100px;
+	cursor:pointer;
+}
+#testbtn{
+	position:absolute;
+	top:30%;
+	left:53%;
+	font-size:16px;
+	margin: 4px 2px;
+	background-color:yellow;
+	border-style:none;
+	height:40px;
+	width:100px;
+	cursor:pointer;
+}
+#homebtn{
+	position:absolute;
+	top:30%;
+	left:63%;
+	font-size:16px;
+	margin: 4px 2px;
+	background-color:yellow;
+	border-style:none;
+	height:40px;
+	width:100px;
+	cursor:pointer;
+}
+		
+		#upload-form{
+			visibility: hidden;
+			position:absolute;
+			top:40%;
+			left:41%;
+		}
+		#test-form{
+			visibility:hidden;
+			position:absolute;
+			top:40%;
+			left:40%;
+		}
+		img{
+	position:absolute;
+	left:35%;
+	top:15%
+}
+
+body{
+	background-color:#28cfa3;
+}
+#uploadbtn:hover,#classify2btn:hover,#testbtn:hover,#homebtn:hover {
+    background-color: #3e8e41;
+}
+	</style>
+</head>
+<body>
+<button onclick="onClick(this)" id="uploadbtn">upload</button>
+<button onclick="location.href='http://localhost:5000/f2testselection';" id="classify2btn">classify2</button>
+<button onclick="location.href='http://localhost:5000/finaltest';" id="testbtn">Test</button>
+<button onclick="location.href='http://localhost:5000/';" id="homebtn">Home</button>
+
+<script>
+   	function onClick(x){
+   		if (x.id == 'uploadbtn') {document.getElementById("upload-form").style.visibility = "visible";document.getElementById("test-form").style.visibility = "hidden"};
+   	}
+   		
+</script>
+<form id = "upload-form" action = "http://localhost:5000/testupload" method="post" enctype="multipart/form-data">
+	<h2>File uploader</h2>
+	<input type="file" name="test_file" accept="text/plain" multiple>
+	<input type="submit" value="add">
+</form>
+
+
+
+
+<img src="http://www.surukam.com/wp-content/uploads/2017/01/surukam-logo.png">
+
+</body>
+</html>

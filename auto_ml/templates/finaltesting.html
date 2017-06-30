@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<head>
+	<style>
+		
+		#uploadbtn:hover{
+			background-color:white;
+	}
+	#classify2btn:hover{
+		background-color:white;
+	}
+#uploadbtn{
+	position:absolute;
+	top:30%;
+	left:42%;
+	font-size:16px;
+	margin: 4px 2px;
+	background-color:yellow;
+	border-style:none;
+	height:40px;
+	width:100px;
+}
+#classify2btn{
+	position:absolute;
+	top:30%;
+	left:52%;
+	font-size:16px;
+	margin: 4px 2px;
+	background-color:yellow;
+	border-style:none;
+	height:40px;
+	width:100px;
+}
+		
+		#upload-form{
+			visibility: hidden;
+			position:absolute;
+			top:40%;
+			left:41%;
+		}
+
+		#classify1form{
+			visibility: hidden;
+			position:absolute;
+			top:40%;
+			left:30%;
+		}
+		#classify2form{
+			visibility: hidden;
+			position:absolute;
+			top:40%;
+			left:30%;
+		}
+		img{
+	position:absolute;
+	left:35%;
+	top:15%
+}
+body{
+	background-color:#28cfa3;
+}
+	</style>
+</head>
+<body>
+<button onclick="onClick(this)" id="uploadbtn">upload</button>
+<button onclick="onClick(this)" id="classify2btn">classifier_2</button>
+<script>
+   	function onClick(x){
+   		if (x.id == 'uploadbtn') document.getElementById("upload-form").style.visibility = "visible";
+   		if (x.id == 'classify2btn') {document.getElementById("classify2form").style.visibility = "visible";document.getElementById("upload-form").style.visibility = "hidden";}
+   		}
+</script>
+
+
+<form id = "upload-form" action = "http://localhost:5000/upload" method="post" enctype="multipart/form-data" target="_blank">
+	<h2>File uploader</h2>
+	<input type="file" name="file" accept="text/plain" multiple>
+	<input type="submit" value="add">
+</form>
+
+<form name = "feature2form" id = "classify2form" action = "http://localhost:5000/f2selection" method = "post" target="_blank"> 
+    <h2>Select your favourite features for second level of classification</h2> 	
+	<fieldset>
+     	<input type="checkbox" id="feature1" value="token_length" name="level_2_features"><label for="token_length"> token_length</label><br>
+     	<input type="checkbox" id="feature2" value="uppercase" name="level_2_features"><label for="uppercase"> uppercase</label><br> 
+     	<input type="checkbox" id="feature3" value="initcase" name="level_2_features"><label for="initcase"> initcase</label><br> 
+     	<input type="checkbox" id="feature4" value="start_paranthesis" name="level_2_features"><label for="start_paranthesis"> start_paranthesis</label><br> 
+     	<input type="checkbox" id="feature5" value="token_ending_regex" name="level_2_features"><label for="token_ending_regex"> token_ending_regex</label><br> 
+     	<input type="checkbox" id="feature6" value="digit_regex_value" name="level_2_features"><label for="digit_regex_value"> digit_regex_value</label><br>
+     	<input type="checkbox" id="feature7" value="contains_digit" name="level_2_features"><label for="contains_digit"> contains_digit</label><br>
+     	<input type="checkbox" id="feature8" value="contains_roman" name="level_2_features"><label for="contains_roman"> contains_roman</label><br>
+     	<input type="checkbox" id="feature9" value="pos_tag" name="level_2_features"><label for="pos_tag"> pos_tag</label><br>
+     	<input type="checkbox" id="feature10" value="phrase_tag" name="level_2_features"><label for="phrase_tag"> phrase_tag</label><br> <br>
+     	<input type="submit" value = "Submit" id = "submitBtn" />
+     </fieldset>
+</form> 
+<img src="http://www.surukam.com/wp-content/uploads/2017/01/surukam-logo.png">
+
+</body>
+</html>

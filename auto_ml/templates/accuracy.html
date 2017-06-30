@@ -1,0 +1,133 @@
+
+<!DOCTYPE hrml>
+<head>
+	<style>
+		
+		#bestalgobtn{
+	position:absolute;
+	top:42%;
+	left:32%;
+	font-size:16px;
+	margin: 4px 2px;
+	background-color:yellow;
+	border-style:none;
+	height:40px;
+	width:100px;
+	cursor:pointer;
+}
+	#accuracybtn{
+	position:absolute;
+	top:42%;
+	left:42%;
+	font-size:16px;
+	margin: 4px 2px;
+	background-color:yellow;
+	border-style:none;
+	height:40px;
+	width:100px;
+	cursor:pointer;
+}
+	#confmatrixbtn{
+	position:absolute;
+	top:42%;
+	left:52%;
+	font-size:16px;
+	margin: 4px 2px;
+	background-color:yellow;
+	border-style:none;
+	height:40px;
+	width:100px;
+	cursor:pointer;
+}
+	#clasireportbtn{
+	position:absolute;
+	top:42%;
+	left:62%;
+	font-size:16px;
+	margin: 4px 2px;
+	background-color:yellow;
+	border-style:none;
+	height:40px;
+	width:100px;
+	cursor:pointer;
+}
+	#homebtn{
+	position:absolute;
+	top:42%;
+	left:72%;
+	font-size:16px;
+	margin: 4px 2px;
+	background-color:yellow;
+	border-style:none;
+	height:40px;
+	width:100px;
+	cursor:pointer;
+}
+body{
+	background-color:#9fc9be;
+}
+p{
+   	color:black;
+   	font-size: 20px;
+   }
+#bestalgobtn:hover,#accuracybtn:hover,#confmatrixbtn:hover,#clasireportbtn:hover, #homebtn:hover {
+    background-color: #3e8e41;
+}
+#bestalgo,#accuracy,#confmatrix,#classireport{
+	visibility:hidden;
+	position:absolute;
+	top:50%;
+	left:34%;
+}
+h2{
+	position:absolute;
+	left:36%;
+	top:30%
+}
+img{
+	position:absolute;
+	left:38%;
+	top:15%
+}
+span {
+    font-size:18px;
+    font-weight:bold;
+    }
+	</style>
+</head>
+
+   <body>
+   <pre>
+	<img src="http://www.surukam.com/wp-content/uploads/2017/01/surukam-logo.png"><br><br><br><br><br><br><br><br><br><br>
+	<h2 >Click any button to display specific result</h2>
+	<button onclick="onClick(this)" id="bestalgobtn">Bestalgo</button>
+	<button onclick="onClick(this)" id="accuracybtn">accuracy</button>
+	<button onclick="onClick(this)" id="confmatrixbtn">confmatrix</button>
+	<button onclick="onClick(this)" id="clasireportbtn">clasireport</button>
+	<button onclick="location.href='http://localhost:5000/';" id="homebtn">Home</button>
+
+	<script>
+	function onClick(x) {
+		if (x.id == 'bestalgobtn') {document.getElementById("bestalgo").style.visibility = "visible";document.getElementById("accuracy").style.visibility = "hidden";document.getElementById("confmatrix").style.visibility = "hidden";document.getElementById("classireport").style.visibility="hidden"};
+    	if (x.id == 'accuracybtn') {document.getElementById("bestalgo").style.visibility = "hidden";document.getElementById("accuracy").style.visibility = "visible";document.getElementById("confmatrix").style.visibility = "hidden";document.getElementById("classireport").style.visibility="hidden"};
+    	if (x.id == 'confmatrixbtn') {document.getElementById("bestalgo").style.visibility = "hidden";document.getElementById("accuracy").style.visibility = "hidden";document.getElementById("confmatrix").style.visibility = "visible";document.getElementById("classireport").style.visibility="hidden"};
+    	if (x.id == 'clasireportbtn') {document.getElementById("bestalgo").style.visibility = "hidden";document.getElementById("accuracy").style.visibility = "hidden";document.getElementById("confmatrix").style.visibility = "hidden";document.getElementById("classireport").style.visibility="visible"};
+	}
+	</script>
+   <p id="bestalgo">
+   {{best_algo}}
+   </p>
+   <p id="accuracy">
+   accuracy={{accu_score}}
+   </p>
+   <p id="confmatrix">
+   confusion matrix
+   <br>{{conf_matrix}}
+   </p>
+   <p id="classireport">
+   classification report
+   <br>{{classi_report}}
+   </p>
+   </pre>
+   </body>
+  </html>

@@ -1,0 +1,49 @@
+<!DOCTYPE hrml>
+<head>
+	<style>
+		
+			#gobackbtn{
+	position:absolute;
+	top:42%;
+	left:46%;
+	font-size:16px;
+	margin: 4px 2px;
+	background-color:yellow;
+	border-style:none;
+	height:40px;
+	width:100px;
+	cursor:pointer;
+}
+body{
+	background-color:#9fc9be;
+}
+p{
+   	color:black;
+   	font-size: 20px;
+   	position:absolute;
+	left:25%;
+	top:25%
+   }
+#gobackbtn:hover {
+    background-color: #3e8e41;
+}
+
+img{
+	position:absolute;
+	left:38%;
+	top:15%
+}
+	</style>
+</head>
+<body>
+<pre>
+<img src="http://www.surukam.com/wp-content/uploads/2017/01/surukam-logo.png"><br><br><br><br><br><br><br><br><br><br>
+<p>
+ {{success_msg}}
+</p>
+<button onclick="location.href='http://localhost:5000/train';" id="gobackbtn">go back</button>
+</pre>
+</body>
+</html>
+
+
